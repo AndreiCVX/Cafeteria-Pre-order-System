@@ -8,9 +8,9 @@ The Cafeteria Pre-order System lets students and staff browse the campus cafeter
 ## Team Members
 | Member | Primary responsibility |
 |---|---|
-| [Member 1 name] | Backend / routes / business logic |
-| [Member 2 name] | Frontend / pages / forms / UI |
-| [Member 3 name] | Database / authentication / testing |
+| [Jon Andrei] | Backend / routes / business logic |
+| [Alhea and Kiara] | Frontend / pages / forms / UI |
+| [Martina] | Database / authentication / testing |
 
 ## Assigned System
 Cafeteria Pre-order System (paired with: [Other team's name])
