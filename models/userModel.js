@@ -1,0 +1,29 @@
+const db = require('../config/db');
+
+exports.findByEmail = async (email) => {
+  const [rows] = await db.query('SELECT * FROM users WHERE email = ?', [email]);
+  return rows[0];
+};
+
+exports.findById = async (id) => {
+  const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [id]);
+  return rows[0];
+};
+
+exports.create = async ({ name, email, passwordHash, role = 'customer' }) => {
+  const [r] = await db.query(
+    'INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, ?)',
+    [name, email, passwordHash, role]
+  );
+  return r.insertId;
+};
+
+exports.list = async () => {
+  const [rows] = await db.query(
+    'SELECT id, name, email, role, is_active, created_at FROM users ORDER BY created_at DESC'
+  );
+  return rows;
+};
+
+exports.setRole = (id, role) => db.query('UPDATE users SET role = ? WHERE id = ?', [role, id]);
+exports.setActive = (id, active) => db.query('UPDATE users SET is_active = ? WHERE id = ?', [active ? 1 : 0, id]);
